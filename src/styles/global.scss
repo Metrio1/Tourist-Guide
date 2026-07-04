@@ -1,0 +1,8 @@
+@use './index' as *;
+
+body {
+  font-family: $font-body;
+  font-size: $fs-body;
+  color: $color-text;
+  background-color: $color-bg;
+}
