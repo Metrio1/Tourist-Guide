@@ -1,0 +1,64 @@
+@use '../../styles/index' as *;
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: $color-bg;
+}
+
+.heroContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;  
+  min-height: 100vh;
+}
+
+.heroContent {
+  padding: $space-xl;
+  display: flex;
+  align-items: center;
+}
+
+.heroContent h1 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-text;
+}
+
+.heroTitlePrimary {
+  display: block;
+  font-size: 3rem;
+  color: $color-primary;
+  margin-bottom: $space-sm;
+}
+
+.heroTitleSecondary {
+  display: block;
+  font-size: 1.5rem;
+  color: $color-text-secondary;
+}
+
+.heroImageSide {
+  background-image: url('../../assets/hero/kirovka.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroCamel {
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+  margin-left: -550px;
+  margin-top: 200px;
+  position: relative;
+}
