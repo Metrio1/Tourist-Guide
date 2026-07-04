@@ -6,3 +6,7 @@ body {
   color: $color-text;
   background-color: $color-bg;
 }
+
+a {
+    white-space: nowrap;
+}

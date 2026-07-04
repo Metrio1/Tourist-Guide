@@ -22,6 +22,7 @@
   padding: $space-xl;
   display: flex;
   align-items: center;
+  
 }
 
 .heroContent h1 {
@@ -59,6 +60,25 @@
   height: auto;
   object-fit: contain;
   margin-left: -550px;
-  margin-top: 200px;
+  margin-top: 100px;
   position: relative;
+  
+  @media (max-width: 1680px) {
+    max-width: 550px;
+    margin-left: -330px;
+  }
+  
+  @media (max-width: 1440px) {
+    max-width: 500px;
+    margin-left: -280px;
+  }
+  
+  @media (max-width: 1024px) {
+    margin-left: -100px;
+    max-width: 350px;
+  }
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
