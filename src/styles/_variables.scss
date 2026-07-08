@@ -1,9 +1,12 @@
-$color-primary: #1B4332;
-$color-primary-dark: #12281F;
-$color-primary-light: #2D6A4F;
-
+$color-green: #1B4332;
 $color-accent: #E07A5F;
-$color-accent-dark: #C9563D;
+$color-green-light: #2e7255;
+$color-green-dark: #12281F;
+$color-green-light-primary: #64e9ad;
+
+$color-primary: $color-green;
+$color-primary-dark: $color-green-dark;
+$color-accent: #E07A5F;
 
 $color-bg: #FAF9F6;
 $color-bg-secondary: #F0EEE7;

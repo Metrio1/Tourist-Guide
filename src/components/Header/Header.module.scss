@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .header {
     position: fixed;
     top: 0;
@@ -5,16 +7,130 @@
     width: 100%;
     z-index: 900;
     padding-block: 20px;
+    animation: slideDown 0.6s ease-out forwards;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &.scrolled {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .container {
     display: flex;
     width: 50%;
     padding: 0 20px;
-    gap: 40px;
+    gap: 30px;
 }
 
 .navList {
     display: flex;
     gap: 20px;
+    color: $color-text;
+}
+
+.link {
+    color: $color-text;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding-block: 8px;
+
+    &:hover {
+        color: $color-green-light-primary;
+    }
+}
+
+.activeLink {
+    color: $color-accent;
+    font-weight: 600;
+
+    &:hover {
+        color: $color-accent;
+    }
+}
+
+.logo {
+    color: $color-text;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header.placesPage {
+    .link {
+        color: #ffffff;
+
+        &:hover {
+            color: $color-green-light-primary;
+        }
+    }
+
+    .logo {
+        color: #ffffff;
+    }
+}
+
+.header.scrolled {
+    .link {
+        color: #000000;
+
+        &:hover {
+            color: $color-green;
+        }
+    }
+
+    .activeLink {
+        color: $color-accent;
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+
+    .logo {
+        color: #000000;
+    }
+}
+
+@media (max-width: 493px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    .navList {
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 280px;
+    }
+
+    .link {
+        font-size: 0.875rem;
+    }
+
+    .header.placesPage {
+        position: relative;
+
+        .link {
+            color: #000000;
+
+            &:hover {
+                color: $color-green;
+            }
+        }
+
+        .logo {
+            color: #000000;
+        }
+    }
 }

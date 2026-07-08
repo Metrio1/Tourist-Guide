@@ -1,14 +1,30 @@
 @import '../../styles/_variables.scss';
 
 .section {
-  padding: 60px 20px;
+  padding: 180px 20px;
+  background: $color-bg;
 }
 
 .title {
+  font-family: $font-body;
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 32px;
   text-align: center;
+  color: $color-text;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.title.inView {
+  animation: titleScaleUp 0.6s ease-out forwards;
+}
+
+@keyframes titleScaleUp {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .list {
@@ -18,7 +34,6 @@
   gap: 16px;
   list-style: none;
   padding: 0;
-  margin: 0;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -29,12 +44,22 @@
   position: relative;
   cursor: pointer;
   transition: box-shadow 0.3s ease, border 0.3s ease;
-  border: 2px solid transparent;
+  border: 5px solid transparent;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.list.inView .item {
+  animation: cardFadeIn 0.5s ease-out forwards;
 }
 
 .item:hover {
-  border-color: $color-primary-light;
+  border-color: $color-accent;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  .place {
+    color: $color-accent;
+  }
 }
 
 .item:first-child {
@@ -97,4 +122,104 @@
 .place {
   font-size: 18px;
   font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list.inView .item:nth-child(1) { animation-delay: 0.2s; }
+.list.inView .item:nth-child(2) { animation-delay: 0.4s; }
+.list.inView .item:nth-child(3) { animation-delay: 0.6s; }
+.list.inView .item:nth-child(4) { animation-delay: 0.8s; }
+.list.inView .item:nth-child(5) { animation-delay: 0.5s; }
+.list.inView .item:nth-child(6) { animation-delay: 0.9s; }
+
+@media (max-width: $bp-desktop) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 220px);
+  }
+
+  .item:first-child {
+    grid-row: span 1;
+  }
+
+  .item:nth-child(3) {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .section {
+    padding: 120px 20px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: 12px;
+  }
+
+  .item:first-child {
+    grid-row: span 1;
+  }
+
+  .item:nth-child(3) {
+    grid-row: span 1;
+  }
+
+  .city {
+    font-size: 12px;
+  }
+
+  .place {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .section {
+    padding: 80px 16px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 180px);
+    gap: 12px;
+  }
+
+  .item:first-child {
+    grid-row: span 1;
+  }
+
+  .item:nth-child(3) {
+    grid-row: span 1;
+  }
+
+  .article {
+    padding: 12px;
+  }
+
+  .city {
+    font-size: 11px;
+  }
+
+  .place {
+    font-size: 15px;
+  }
 }

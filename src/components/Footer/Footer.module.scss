@@ -1,0 +1,105 @@
+@import '../../styles/_variables.scss';
+
+.footer {
+  background-color: $color-green;
+  color: $color-bg;
+  padding: $space-xl $space-md $space-md;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: $space-lg;
+  padding-bottom: $space-lg;
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLogo {
+  font-family: $font-body;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tagline {
+  color: rgba($color-bg, 0.7);
+  margin-top: $space-xs;
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-family: $font-body;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba($color-bg, 0.6);
+  margin-bottom: $space-sm;
+  margin-top: 0;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  color: $color-bg;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    color: $color-green-light-primary;
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba($color-bg, 0.15);
+  margin: $space-md 0;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba($color-bg, 0.5);
+  margin: 0;
+}
+
+.copyright,
+.disclaimer {
+  margin: 0;
+}
+
+@media (max-width: $bp-tablet) {
+  .topRow {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    gap: $space-xs;
+    align-items: flex-start;
+  }
+}

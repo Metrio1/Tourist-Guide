@@ -1,0 +1,43 @@
+@import '../../styles/_variables.scss';
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $space-lg $space-md;
+  border-top: 1px solid $color-border;
+  background: $color-bg;
+}
+
+.text {
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $color-text;
+  margin: 0;
+}
+
+.link {
+  font-family: $font-body;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $color-green;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .block {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $space-md $space-sm;
+  }
+}

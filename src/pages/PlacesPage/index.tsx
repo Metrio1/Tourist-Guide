@@ -1,6 +1,1 @@
-export default function PlacesPage() {
-  return (
-    <>
-    </>
-  );
-}
+export { default } from './PlacesPage';

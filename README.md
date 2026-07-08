@@ -1,75 +1,55 @@
-# React + TypeScript + Vite
+# Туристический путеводитель по Челябинской области
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA-путеводитель по достопримечательностям Челябинской области (тестовое задание). Информационный сайт с фильтрацией мест по категориям.
 
-Currently, two official plugins are available:
+## Технологический стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19.2.7
+- TypeScript 6.0.2
+- Vite 8.1.1
+- React Router DOM 7.18.1
+- Sass 1.101.0
 
-## React Compiler
+## Функциональность
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Главная страница**: hero-блок, популярные места, галерея с лайтбоксом, блок "о проекте"
+- **Страница со списком мест** с фильтрацией по категориям (природа/история/архитектура)
+- **Анимации появления элементов** при прокрутке (IntersectionObserver через кастомный хук `useInView`)
+- **Адаптивная вёрстка** на SCSS-модулях
+- **Доступность**: aria-атрибуты для фильтров (`aria-pressed`, `aria-label`)
 
-## Expanding the ESLint configuration
+## Запуск проекта
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd tourist-guide-app
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Дополнительные команды
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm run build` — сборка проекта для продакшена
+- `npm run lint` — проверка кода ESLint
+- `npm run preview` — предпросмотр собранного проекта
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Требования
+
+Node.js 20.19.0 или 22.12.0 и выше
+
+## Структура проекта
 
 ```
+src/
+├── components/    — переиспользуемые UI-компоненты
+├── data/          — статические данные (список мест)
+├── hooks/         — кастомные React-хуки
+├── pages/         — страницы приложения
+├── router/        — конфигурация роутинга
+├── styles/        — глобальные стили и переменные
+├── types/         — TypeScript-типы
+└── main.tsx       — точка входа приложения
+```
+
+## Данные
+
+Список мест хранится статично в `src/data/places.ts` без внешнего API.
